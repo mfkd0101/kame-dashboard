@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>株式会社かめ AIカンパニー</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.6.0/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f8f7f4;--card:#fff;--text:#1a1a1a;--sub:#666;--hint:#999;--border:#e8e6e1;--accent:#534AB7;--accent-bg:#EEEDFE;--danger:#E24B4A;--danger-bg:#FCEBEB;--success:#1D9E75;--success-bg:#E1F5EE;--warn:#BA7517;--warn-bg:#FAEEDA;--info:#378ADD;--info-bg:#E6F1FB;--radius:12px}
+@media(prefers-color-scheme:dark){:root{--bg:#1a1a1a;--card:#252525;--text:#e8e6e1;--sub:#aaa;--hint:#777;--border:#333;--accent-bg:#26215C;--danger-bg:#501313;--success-bg:#04342C;--warn-bg:#412402;--info-bg:#042C53}}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:16px;max-width:800px;margin:0 auto}
+.header{margin-bottom:24px}
+.header h1{font-size:20px;font-weight:600}
+.header p{font-size:13px;color:var(--sub)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:16px}
+.card-title{font-size:15px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card-title i{font-size:18px;color:var(--accent)}
+.greeting{font-size:16px;font-weight:500;margin-bottom:8px}
+.one-point{background:var(--accent-bg);color:var(--accent);padding:10px 14px;border-radius:8px;font-size:13px;margin-bottom:14px;line-height:1.5}
+@media(prefers-color-scheme:dark){.one-point{color:#AFA9EC}}
+.task-list{list-style:none}
+.task-item{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);font-size:14px}
+.task-item:last-child{border-bottom:none}
+.task-check{width:18px;height:18px;border:2px solid var(--border);border-radius:4px;flex-shrink:0;margin-top:2px;cursor:pointer}
+.task-check.done{background:var(--success);border-color:var(--success)}
+.task-dept{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--info-bg);color:var(--info);white-space:nowrap}
+.task-text{flex:1}
+.priority-high .task-text{font-weight:500}
+.dept-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:500px){.dept-grid{grid-template-columns:1fr 1fr}}
+.dept-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
+.dept-name{font-size:14px;font-weight:600;display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.dept-name i{font-size:16px;color:var(--accent)}
+.dept-status{font-size:11px;padding:2px 8px;border-radius:6px;display:inline-block;margin-bottom:8px}
+.dept-summary{font-size:12px;color:var(--sub);margin-bottom:8px}
+.dept-tasks{list-style:none;font-size:12px}
+.dept-tasks li{padding:3px 0;color:var(--sub)}
+.dept-tasks li::before{content:"□ "}
+.revenue-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.rev-item{background:var(--bg);border-radius:8px;padding:10px 12px}
+.rev-label{font-size:11px;color:var(--hint)}
+.rev-val{font-size:18px;font-weight:600}
+.fx-pair{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);font-size:14px}
+.fx-pair:last-child{border-bottom:none}
+.fx-name{font-weight:600;width:80px}
+.fx-dir{font-size:11px;padding:2px 8px;border-radius:6px;font-weight:500}
+.fx-sell{background:var(--danger-bg);color:var(--danger)}
+.fx-buy{background:var(--success-bg);color:var(--success)}
+.fx-wait{background:var(--warn-bg);color:var(--warn)}
+.fx-phase{font-size:12px;color:var(--sub);flex:1}
+.fx-stars{color:var(--warn);font-size:12px}
+.updated{text-align:center;font-size:11px;color:var(--hint);padding:16px 0}
+.section-label{font-size:12px;color:var(--hint);text-transform:uppercase;letter-spacing:1px;margin:24px 0 8px;font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1><i class="ti ti-building" style="vertical-align:-2px"></i> 株式会社かめ AIカンパニー</h1>
+<p>ダッシュボード</p>
+</div>
+
+<div id="app">読み込み中...</div>
+
+<script>
+async function load(){
+const r=await fetch('data/dashboard.json?t='+Date.now());
+const d=await r.json();
+const app=document.getElementById('app');
+
+const stars=n=>'★'.repeat(n)+'☆'.repeat(3-n);
+const yen=n=>n.toLocaleString('ja-JP');
+
+app.innerHTML=`
+<div class="card">
+  <div class="card-title"><i class="ti ti-sparkles"></i>秘書室（リン）</div>
+  <div class="greeting">${d.secretary.greeting}</div>
+  <div class="one-point"><i class="ti ti-bulb" style="vertical-align:-1px;margin-right:4px"></i>${d.secretary.one_point}</div>
+  <div class="card-title" style="font-size:13px;margin-top:8px"><i class="ti ti-checkbox"></i>今日やること</div>
+  <ul class="task-list">
+    ${d.secretary.today_tasks.map(t=>`
+    <li class="task-item ${t.priority==='high'?'priority-high':''}">
+      <div class="task-check ${t.done?'done':''}"></div>
+      <span class="task-text">${t.text}</span>
+      <span class="task-dept">${t.dept}</span>
+    </li>`).join('')}
+  </ul>
+</div>
+
+<div class="section-label">各部門の状況</div>
+<div class="dept-grid">
+  ${d.departments.map(dep=>`
+  <div class="dept-card">
+    <div class="dept-name"><i class="ti ti-${dep.icon}"></i>${dep.name}</div>
+    <span class="dept-status" style="background:${dep.status==='移行中'?'var(--warn-bg)':'var(--info-bg)'};color:${dep.status==='移行中'?'var(--warn)':'var(--info)'}">${dep.status}</span>
+    <div class="dept-summary">${dep.summary}</div>
+    <ul class="dept-tasks">${dep.current_tasks.map(t=>`<li>${t.text}</li>`).join('')}</ul>
+  </div>`).join('')}
+</div>
+
+<div class="section-label">FXウィークリー</div>
+<div class="card">
+  <div class="card-title"><i class="ti ti-chart-candle"></i>${d.fx_summary.week}</div>
+  <div class="one-point" style="background:var(--warn-bg);color:var(--warn)"><i class="ti ti-alert-triangle" style="vertical-align:-1px;margin-right:4px"></i>${d.fx_summary.one_point}</div>
+  ${d.fx_summary.top_pairs.map(p=>`
+  <div class="fx-pair">
+    <span class="fx-name">${p.pair}</span>
+    <span class="fx-dir ${p.direction==='SELL'?'fx-sell':p.direction==='BUY'?'fx-buy':'fx-wait'}">${p.direction}</span>
+    <span class="fx-phase">${p.phase}</span>
+    <span class="fx-stars">${stars(p.priority)}</span>
+  </div>`).join('')}
+</div>
+
+<div class="section-label">売上（2026年6月）</div>
+<div class="card">
+  <div style="font-size:24px;font-weight:600;margin-bottom:12px">¥${yen(d.revenue.monthly_total)}</div>
+  <div class="revenue-grid">
+    ${d.revenue.breakdown.map(r=>`
+    <div class="rev-item">
+      <div class="rev-label">${r.name}</div>
+      <div class="rev-val">¥${yen(r.amount)}</div>
+    </div>`).join('')}
+  </div>
+</div>
+
+<div class="updated">最終更新: ${new Date(d.last_updated).toLocaleString('ja-JP')}</div>
+`;
+}
+load();
+setInterval(load,30000);
+</script>
+</body>
+</html>

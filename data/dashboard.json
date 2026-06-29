@@ -1,0 +1,85 @@
+{
+  "last_updated": "2026-06-29T15:00:00",
+  "secretary": {
+    "greeting": "マオさん、今日もお疲れさまです！",
+    "today_tasks": [
+      {"text": "広告主に移行案内メールを送る", "dept": "アフィリ運営部", "priority": "high", "done": false},
+      {"text": "ツールのエラー修正を外注先に依頼", "dept": "アフィリ運営部", "priority": "high", "done": false},
+      {"text": "30万リストのCM脱却戦略を考え始める", "dept": "メディア部", "priority": "medium", "done": false},
+      {"text": "シルバーコンテンツの骨子を考える", "dept": "コンテンツ部", "priority": "medium", "done": false},
+      {"text": "3ジャンルの優先順位を決める", "dept": "ファネル部", "priority": "low", "done": false}
+    ],
+    "one_point": "今週の最優先はアフィリセンター移行の完了。広告主への案内を出せば一気に動き出します。"
+  },
+  "departments": [
+    {
+      "name": "メディア部",
+      "icon": "mail",
+      "status": "計画中",
+      "summary": "30万リストのCM脱却 → 価値提供型メディアへ転換",
+      "current_tasks": [
+        {"text": "30万リストの現状数字を確認", "done": false},
+        {"text": "価値提供メルマガの方向性を決める", "done": false}
+      ]
+    },
+    {
+      "name": "コンテンツ部",
+      "icon": "file-text",
+      "status": "計画中",
+      "summary": "シルバー/ゴールド/プラチナの育成コンテンツ制作",
+      "current_tasks": [
+        {"text": "シルバー（無料）コンテンツの骨子作成", "done": false}
+      ]
+    },
+    {
+      "name": "ファネル部",
+      "icon": "chart-arrows-vertical",
+      "status": "Phase2から",
+      "summary": "子育て・健康・ビジネス 3ジャンルのトリップワイヤーファネル",
+      "current_tasks": [
+        {"text": "3ジャンルの優先順位を決める", "done": false}
+      ]
+    },
+    {
+      "name": "アフィリ運営部",
+      "icon": "users-group",
+      "status": "移行中",
+      "summary": "クチコ→自社ツール移行・ランク制度設計",
+      "current_tasks": [
+        {"text": "広告主に移行案内メールを送る", "done": false},
+        {"text": "ツールのエラー修正", "done": false},
+        {"text": "ランク制度の詳細設計", "done": false}
+      ]
+    },
+    {
+      "name": "FX部",
+      "icon": "chart-candle",
+      "status": "分析済",
+      "summary": "3レポート統合分析 → 来週はショート優勢",
+      "current_tasks": [
+        {"text": "EUR/USD 戻り売りのチャンス待ち", "done": false},
+        {"text": "AUD/JPY 本流入り確認・エントリー検討", "done": false}
+      ]
+    }
+  ],
+  "revenue": {
+    "monthly_total": 840000,
+    "breakdown": [
+      {"name": "メルマガアフィリ", "amount": 400000},
+      {"name": "号外広告", "amount": 150000},
+      {"name": "アフィリセンター手数料", "amount": 150000},
+      {"name": "UTAGEアフィリ", "amount": 140000}
+    ]
+  },
+  "fx_summary": {
+    "week": "28th week (6/29〜)",
+    "top_pairs": [
+      {"pair": "EUR/USD", "direction": "SELL", "phase": "本流中", "priority": 3},
+      {"pair": "AUD/JPY", "direction": "SELL", "phase": "本流入り", "priority": 3},
+      {"pair": "GBP/CHF", "direction": "SELL", "phase": "本流中", "priority": 3},
+      {"pair": "NZD/USD", "direction": "SELL", "phase": "本流中", "priority": 2},
+      {"pair": "USD/JPY", "direction": "様子見", "phase": "調整中", "priority": 2}
+    ],
+    "one_point": "全体的にショート優勢。MA乖離大の通貨が多いので安値掴み注意。"
+  }
+}
