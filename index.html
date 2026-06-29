@@ -99,6 +99,9 @@ app.innerHTML=`
   </div>`).join('')}
 </div>
 
+<div class="section-label">TTL動画スケジュール</div>
+<div class="card" id="ttl-section"></div>
+
 <div class="section-label">FXウィークリー</div>
 <div class="card">
   <div class="card-title"><i class="ti ti-chart-candle"></i>${d.fx_summary.week}</div>
@@ -127,7 +130,24 @@ app.innerHTML=`
 <div class="updated">最終更新: ${new Date(d.last_updated).toLocaleString('ja-JP')}</div>
 `;
 }
-load();
+load().then(()=>{
+  fetch('data/dashboard.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+    const t=d.ttl_study;
+    const el=document.getElementById('ttl-section');
+    if(!el||!t)return;
+    const pct=Math.round(t.watched/t.total_videos*100);
+    const upcoming=t.schedule.slice(t.watched,t.watched+5);
+    el.innerHTML='<div class="card-title"><i class="ti ti-player-play"></i>'+t.current_phase+'</div>'
+      +'<div style="display:flex;gap:8px;align-items:center;margin-bottom:12px">'
+      +'<div style="flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden">'
+      +'<div style="height:100%;background:var(--accent);border-radius:4px;width:'+pct+'%"></div></div>'
+      +'<span style="font-size:12px;color:var(--sub)">'+t.watched+'/'+t.total_videos+'</span></div>'
+      +upcoming.map(s=>'<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:13px">'
+        +'<span style="min-width:36px;color:var(--hint);font-size:12px">'+s.day+'</span>'
+        +'<span style="flex:1">'+s.title+'</span>'
+        +'<span style="font-size:11px;color:var(--hint)">'+s.min+'分</span></div>').join('');
+  });
+});
 setInterval(load,30000);
 </script>
 </body>
