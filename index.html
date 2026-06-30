@@ -58,7 +58,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 
 <div class="header">
 <h1><i class="ti ti-building" style="vertical-align:-2px"></i> 株式会社かめ AIカンパニー</h1>
-<p>ダッシュボード</p>
+<p id="today-date">ダッシュボード</p>
 </div>
 
 <div id="app">読み込み中...</div>
@@ -71,6 +71,9 @@ const app=document.getElementById('app');
 
 const stars=n=>'★'.repeat(n)+'☆'.repeat(3-n);
 const yen=n=>n.toLocaleString('ja-JP');
+const _days=['日','月','火','水','木','金','土'];
+const _now=new Date();
+document.getElementById('today-date').textContent=_now.getFullYear()+'年'+(_now.getMonth()+1)+'月'+_now.getDate()+'日（'+_days[_now.getDay()]+'）';
 
 app.innerHTML=`
 <div class="card">
