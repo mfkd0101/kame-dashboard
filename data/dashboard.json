@@ -1,37 +1,40 @@
 {
-  "last_updated": "2026-06-30T14:00:00",
+  "last_updated": "2026-06-30T15:00:00",
   "secretary": {
     "greeting": "マオさん、今日もお疲れさまです！",
     "today_tasks": [
       {"text": "自己紹介メール（#005）をMyASPに貼って全リストに配信", "dept": "メルマガ部", "priority": "high", "done": false},
-      {"text": "シルバーコース ステップ1の原稿作成", "dept": "アフィリ育成部", "priority": "high", "done": false},
+      {"text": "シルバーコース 全体シナリオ設計＆ステップ1原稿", "dept": "アフィリ育成部", "priority": "high", "done": false},
       {"text": "UTAGEの現状ファネルを棚卸し", "dept": "自動化部", "priority": "medium", "done": false},
       {"text": "健康リスト向け 価値提供コンテンツ 第1弾", "dept": "子育て・健康部", "priority": "medium", "done": false},
       {"text": "【TTL】3期 No.18 王道パターン 1. 2023年各通貨ペアの検証結果（25分）", "dept": "FX部", "priority": "medium", "done": false}
     ],
-    "one_point": "今週の最優先はメルマガの自己紹介配信。30万リストに「かめって誰？」を解消するだけで号外の反応率が上がります。"
+    "one_point": "今日の最優先は自己紹介メールの配信。30万リストに「かめって誰？」を解消するだけで号外の反応率が上がります。"
   },
   "departments": [
     {
       "name": "メルマガ部",
       "icon": "mail",
       "status": "進行中",
-      "summary": "30万リストに自己紹介メールを配信。号外9割→価値提供3割への転換を進める",
+      "summary": "自己紹介メール完成済み。全リストに配信するだけ。号外→価値提供3割への転換を進める",
       "current_tasks": [
-        {"text": "#005 自己紹介メールを全リストに配信", "done": false},
+        {"text": "✅ 自己紹介メール（#005）完成", "done": true},
+        {"text": "✅ かめの由来・ストーリーを確定", "done": true},
+        {"text": "MyASPに貼って全リストに配信", "done": false},
         {"text": "英語リスト向け 価値提供コンテンツ #006 作成", "done": false},
-        {"text": "クロス配信ルールを整理（ジャンル外号外の扱い）", "done": false}
+        {"text": "クロス配信ルールの整理", "done": false}
       ]
     },
     {
       "name": "アフィリ育成部",
       "icon": "school",
       "status": "着手中",
-      "summary": "シルバー（無料）・ゴールド（サブスク）のコース原稿作成",
+      "summary": "シルバー（無料）・ゴールド（サブスク）のコース方向性が決定。原稿作成へ",
       "current_tasks": [
-        {"text": "シルバーコース 全体シナリオ設計（何通・何日間）", "done": false},
-        {"text": "ステップ1「ようこそ！全体像」原稿作成", "done": false},
-        {"text": "ステップ2「なぜ稼げないのか」原稿作成", "done": false}
+        {"text": "✅ コース構成・方向性を策定", "done": true},
+        {"text": "シルバーコース 全体シナリオ設計", "done": false},
+        {"text": "ステップ1「ようこそ！全体像」原稿", "done": false},
+        {"text": "ステップ2「なぜ稼げないのか」原稿", "done": false}
       ]
     },
     {
@@ -40,6 +43,7 @@
       "status": "棚卸し中",
       "summary": "UTAGEファネルの整理・アフィリ育成のステップメール構築・自動フロー設計",
       "current_tasks": [
+        {"text": "✅ 部門方向性を策定", "done": true},
         {"text": "現状ファネル一覧を棚卸し", "done": false},
         {"text": "シルバー→ゴールドへのアップセルフロー設計", "done": false}
       ]
@@ -48,10 +52,10 @@
       "name": "子育て・健康部",
       "icon": "heart",
       "status": "着手中",
-      "summary": "健康リストへの価値提供コンテンツ ＋ 子育てメディアの方向性策定",
+      "summary": "健康リストへの価値提供コンテンツ＋子育てメディアの方向性策定",
       "current_tasks": [
+        {"text": "✅ 部門方向性を策定", "done": true},
         {"text": "健康リスト向け 価値提供コンテンツ 第1弾", "done": false},
-        {"text": "子育てコンテンツのペルソナ確認", "done": false},
         {"text": "こどもたのしいとの連携方針を確認", "done": false}
       ]
     },
@@ -59,8 +63,9 @@
       "name": "FX部",
       "icon": "chart-candle",
       "status": "分析済",
-      "summary": "週次レポート + マオさんのチャート分析。来週はショート優勢",
+      "summary": "週次レポート＋チャート分析。来週もショート優勢",
       "current_tasks": [
+        {"text": "✅ 部門方向性を策定", "done": true},
         {"text": "EUR/USD 戻り売りのチャンス待ち", "done": false},
         {"text": "AUD/JPY 本流入り確認・エントリー検討", "done": false}
       ]
