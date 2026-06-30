@@ -72,9 +72,6 @@ const app=document.getElementById('app');
 
 const stars=n=>'★'.repeat(n)+'☆'.repeat(3-n);
 const yen=n=>n.toLocaleString('ja-JP');
-const _days=['日','月','火','水','木','金','土'];
-const _now=new Date();
-document.getElementById('today-date').textContent=_now.getFullYear()+'年'+(_now.getMonth()+1)+'月'+_now.getDate()+'日（'+_days[_now.getDay()]+'）';
 
 app.innerHTML=`
 <div class="card">
